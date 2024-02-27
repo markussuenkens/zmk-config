@@ -9,6 +9,9 @@
 #include "zmk-nodefree-config/helper.h"
 #include "zmk-nodefree-config/international_chars/german.dtsi"
 
+// Define euro sign
+ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
@@ -98,7 +101,7 @@
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  (       │  )       │  -       │  +       │
             &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp LPAR   &kp RPAR   &kp MINUS  &kp PLUS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │  [       │  ]       │          │          │
+        //│          │          │          │ EURO     │          │   │          │  [       │  ]       │          │          │
             &trans     &trans     &trans     &trans     &trans         &trans     &kp LBKT   &kp RBKT   &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │  ;       │  :       │   │          │          │
