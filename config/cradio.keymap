@@ -10,7 +10,7 @@
 #include "zmk-nodefree-config/international_chars/german.dtsi"
 
 // Define euro sign
-ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+ZMK_UNICODE_SINGLE(euro, N2, N0, A, C)  // €
 
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
@@ -64,7 +64,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //								   │          │          │   │  DRUCK   │  ESCAPE  │
+        //                                 │          │          │   │  DRUCK   │  ESCAPE  │
                                              &trans     &trans        &kp PSCRN   &kp ESC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
@@ -102,7 +102,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
             &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp LPAR   &kp RPAR   &kp MINUS  &kp PLUS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ EURO     │          │   │          │  [       │  ]       │          │          │
-            &trans     &trans     &trans     &trans     &trans         &trans     &kp LBKT   &kp RBKT   &trans     &trans
+            &trans     &trans     &trans     &euro      &trans         &trans     &kp LBKT   &kp RBKT   &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │  ;       │  :       │   │          │          │
                                              &kp SEMI   &kp COLON      &trans     &trans
