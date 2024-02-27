@@ -13,6 +13,9 @@
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
 
+// Euro sign
+ZMK_UNICODE_SINGLE(euro, N2, N0, A, C)  // €
+
 / {
     behaviors {
         ht: hold_tap {
@@ -41,29 +44,33 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        //								   │ TABULATOR│  ENTER   │   │  SPACE   │ BACKSPACE│
                                             &lt 2 TAB  &lt 1 ENTER    &lt 4 SPACE &lt 3 BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
         
-
+        // Layer 1
+		
         movement_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │          │          │          │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
-            &trans     &trans     &trans     &trans     &trans         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp COLON
+        //│          │          │          │          │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │          │
+            &trans     &trans     &trans     &trans     &trans         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CAPS     │          │ INSERT   │ DELETE   │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
-           &caps_word  &trans     &kp INS    &kp DEL    &trans         &kp LARW   &kp DARW   &kp UARW   &kp RARW   &kp SEMI
+        //│ CAPS     │          │ INSERT   │ DELETE   │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │          │
+           &caps_word  &trans     &kp INS    &kp DEL    &trans         &kp LARW   &kp DARW   &kp UARW   &kp RARW   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        //								   │          │          │   │  DRUCK   │  ESCAPE  │
                                              &trans     &trans        &kp PSCRN   &kp ESC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
         
+        // Layer 2
         
         number_layer {
             bindings = <
@@ -77,28 +84,33 @@
         //│          │  F1      │  F2      │  F3      │  F10     │   │          │  1       │  2       │  3       │          │
             &trans     &kp F1     &kp F2     &kp F3     &kp F10        &trans     &kp N1     &kp N2     &kp N3     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        //								   │          │          │   │  SPACE   │  0       │
                                              &trans     &trans         &kp SPACE  &kp N0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
         
+        // Layer 3
 
         sign_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-            &trans     &kp LBKT   &kp LBRC   &kp RBRC   &trans         &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT   &kp TILDE
+        //│  ^       │  `       │  ~       │  &       │  |       │   │  \       │  {       │  }       │  _       │  =       │
+            &kp CARET  &kp GRAVE  &kp TILDE  &kp AMPS   &kp PIPE       &kp BSLH   &kp LBRC   &kp RBRC   &kp UNDER  &kp EQUAL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp GRAVE
+        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  (       │  )       │  -       │  +       │
+            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp LPAR   &kp RPAR   &kp MINUS  &kp PLUS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-            &trans     &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
+        //│          │          │          │  EURO    │          │   │          │  [       │  ]       │          │          │
+            &trans     &trans     &trans	 &kp euro	&trans         &trans     &kp LBKT   &kp RBKT   &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+        //								   │  ;       │  :       │   │          │          │
+                                             &kp SEMI   &kp COLON      &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
+        
+        // Layer 4
         
         umlauts_layer {
             bindings = <
@@ -112,6 +124,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        //								   │          │          │   │          │          │
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
@@ -130,6 +143,7 @@
 //│          │          │          │          │          │   │          │          │          │          │          │
     &trans     &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+//								   │          │          │   │          │          │
                                      &trans     &trans         &trans     &trans
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 
