@@ -13,8 +13,8 @@
 ZMK_UNICODE_SINGLE(euro, N2, N0, A, C)  // €
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4  &ht LSHFT k5
-#define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht RGUI k2  &ht RCTRL k3  &ht RALT k4  &ht RSHFT k5
+#define HRML(k1,k2,k3,k4,k5) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4  &ht LSHFT k5
+#define HRMR(k1,k2,k3,k4,k5) &ht RSHFT k1  &ht RGUI k2  &ht RCTRL k3  &ht RALT k4  &ht RSHFT k5
 
 / {
     behaviors {
